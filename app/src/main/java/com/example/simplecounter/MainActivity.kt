@@ -28,10 +28,13 @@ class MainActivity : AppCompatActivity() {
 
         val plusCost = findViewById<TextView>(R.id.plusCost)
         val timesCost = findViewById<TextView>(R.id.timesCost)
+        val goalAmt = findViewById<TextView>(R.id.goal)
 
         var plusVal : Int = 100
         var timesVal : Int = 250
         var placeholder = ""
+
+        var goal = 25
 
         fun bigEnough(taps : Int,cost : Int) : Boolean {
 
@@ -49,7 +52,17 @@ class MainActivity : AppCompatActivity() {
             num += increment
             setNum(num)
 
-        }
+            if (num > goal) {
+                goal *= 2
+                Toast.makeText(this,"Goal reached!",Toast.LENGTH_SHORT).show() // Doesn't work idk why
+                placeholder = "Goal: $goal"
+                goalAmt.text = placeholder
+            }
+
+            }
+
+
+
 
         plusOne.setOnClickListener { // add if conditional later
 
